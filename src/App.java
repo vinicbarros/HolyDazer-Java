@@ -1,5 +1,12 @@
+import java.util.*;
+
 public class App {
     public static void main(String[] args) {
+        Scanner prompt = new Scanner(System.in);
+        System.out.println("Digite uma data para ver se é feriado:");
+        String inputDate = prompt.nextLine();
+        prompt.close();
+
         final Holiday[] holidayList = new Holiday[11];
 
         holidayList[0] = new Holiday("Confraternização mundial", "01/01/2023");
@@ -14,6 +21,9 @@ public class App {
         holidayList[9] = new Holiday("Proclamação da República", "15/11/2023");
         holidayList[10] = new Holiday("Natal", "25/12/2023");
 
+        final HolidayArray holidays = new HolidayArray(holidayList);
+
+        System.out.println(holidays.verifyDate(inputDate));
     }
 
 }
